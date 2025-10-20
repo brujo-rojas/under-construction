@@ -1,0 +1,253 @@
+:root {
+  --bg: #fcfcfe;
+  --bg-elev: #ffffff;
+  --text: #0f172a;
+  --muted: #667085;
+  --brand: #3b82f6;
+  --brand-900: #1e40af;
+  --danger: #e11d48;
+  --focus: 0 0 0 3px color-mix(in oklab, var(--brand) 35%, transparent);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Paleta clara y limpia con acento azul para Vitalis */
+    --bg: #fcfcfe;
+    --bg-elev: #ffffff;
+    --text: #0f172a;
+    --muted: #667085;
+    --brand: #3b82f6; /* azul elegante */
+    --brand-900: #1e40af; /* acento más profundo */
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+  color: var(--text);
+  background: radial-gradient(
+      1000px 600px at 10% -10%,
+      color-mix(in oklab, var(--brand) 12%, transparent),
+      transparent
+    ),
+    radial-gradient(
+      1200px 700px at 110% 10%,
+      color-mix(in oklab, var(--brand) 10%, transparent),
+      transparent
+    ),
+    var(--bg);
+}
+
+.container {
+  width: min(100% - 2rem, 1000px);
+  margin-inline: auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(8px);
+  background: color-mix(in oklab, var(--bg) 86%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.25rem;
+}
+.logo {
+  display: block;
+}
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.hero {
+  display: grid;
+  gap: 1.25rem;
+  padding: 8svh 0 10svh;
+  text-align: center;
+}
+.hero h1 {
+  margin: 0.25rem 0 0;
+  font-size: clamp(1.8rem, 3.5vw + 1rem, 3rem);
+  line-height: 1.1;
+}
+.subhead {
+  color: var(--muted);
+  margin: 0 auto;
+  max-width: 60ch;
+}
+
+.progress {
+  --height: 12px;
+  background: color-mix(in oklab, var(--text) 8%, transparent);
+  border-radius: 999px;
+  padding: 3px;
+}
+.progress .bar {
+  height: var(--height);
+  width: calc(var(--value) * 1%);
+  background: linear-gradient(
+    90deg,
+    var(--brand) 0%,
+    color-mix(in oklab, var(--brand) 70%, var(--brand-900)) 100%
+  );
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+}
+.progress .bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.12) 0 10px,
+    transparent 10px 20px
+  );
+  animation: slide 1.8s linear infinite;
+}
+@keyframes slide {
+  to {
+    transform: translateX(40px);
+  }
+}
+
+.notify {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem auto 0;
+  max-width: 520px;
+}
+.notify input[type="email"] {
+  appearance: none;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+  background: var(--bg-elev);
+  color: var(--text);
+  outline: none;
+}
+.notify input::placeholder {
+  color: color-mix(in oklab, var(--muted) 70%, transparent);
+}
+.notify .btn {
+  padding: 0.9rem 1.1rem;
+  border-radius: 0.75rem;
+  border: 1px solid color-mix(in oklab, var(--brand) 40%, transparent);
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--brand) 40%, #fff0) 0%,
+    color-mix(in oklab, var(--brand) 20%, #0000) 100%
+  );
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+}
+.notify .btn:hover {
+  filter: brightness(1.08);
+}
+.notify .btn:focus-visible {
+  box-shadow: var(--focus);
+}
+.notify .privacy {
+  grid-column: 1 / -1;
+  color: var(--muted);
+}
+
+@media (max-width: 520px) {
+  .notify {
+    grid-template-columns: 1fr;
+  }
+  .notify .btn {
+    width: 100%;
+  }
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin: 0.75rem auto 0;
+  padding: 0;
+  list-style: none;
+  max-width: 900px;
+}
+.highlights li {
+  padding: 0.9rem 1rem;
+  background: color-mix(in oklab, var(--bg-elev) 100%, transparent);
+  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  border-radius: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.highlights .icon {
+  font-size: 1.2rem;
+}
+
+.site-footer {
+  margin-top: 8svh;
+  border-top: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+}
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0.25rem 2rem;
+}
+.socials {
+  display: flex;
+  gap: 0.75rem;
+}
+.social-link {
+  color: var(--muted);
+  text-decoration: none;
+}
+.social-link:hover {
+  color: var(--text);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: var(--bg-elev);
+  color: var(--text);
+  border: 1px solid color-mix(in oklab, var(--text) 12%, transparent);
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  z-index: 50;
+}
+.toast--error {
+  border-color: color-mix(in oklab, var(--danger) 50%, transparent);
+}

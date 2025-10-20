@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark light">
+    <title>Gimnasio — En construcción</title>
+    <meta name="description" content="Nuestro nuevo gimnasio está en construcción. Muy pronto: fuerza, cardio y comunidad.">
+    <link rel="preload" as="image" href="assets/logo.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <img class="logo" src="assets/logo.svg" alt="Logo del gimnasio" width="48" height="48">
+        <span class="brand">Vitalis</span>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero" aria-labelledby="titulo">
+        <h1 id="titulo">Estamos construyendo algo fuerte</h1>
+        <p class="subhead">Muy pronto abrimos las puertas: fuerza, cardio y clases para todos.</p>
+
+        <div class="progress" aria-label="Progreso de construcción" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="72">
+          <div class="bar" style="--value:72"></div>
+        </div>
+
+        <form id="notify-form" class="notify" novalidate action="https://formspree.io/f/xldpvqoa" method="POST" data-endpoint="https://formspree.io/f/xldpvqoa">
+          <label class="visually-hidden" for="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Tu correo para avisarte" required>
+          <button type="submit" class="btn">Avísame</button>
+          <small class="privacy">Sin spam. Puedes darte de baja cuando quieras.</small>
+        </form>
+
+        <ul class="highlights" aria-label="Lo que viene">
+          <li>
+            <span class="icon" aria-hidden="true">💪</span>
+            Pesas libres y máquinas de última generación
+          </li>
+          <li>
+            <span class="icon" aria-hidden="true">⚡</span>
+            Clases HIIT, funcional y yoga
+          </li>
+          <li>
+            <span class="icon" aria-hidden="true">🧼</span>
+            Espacios amplios, limpios y ventilados
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <nav aria-label="Redes sociales" class="socials">
+          <a href="#" aria-label="Instagram" class="social-link" rel="noopener">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5m0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5m5.75-3a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.75 6.5Z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="social-link" rel="noopener">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M13 22v-8h2.5l.5-3H13V9.5c0-.866.176-1.5 1.5-1.5H16V5.2c-.26-.035-1.157-.2-2.2-.2-2.217 0-3.8 1.343-3.8 3.8V11H7v3h3v8Z"/></svg>
+          </a>
+          <a href="#" aria-label="X/Twitter" class="social-link" rel="noopener">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M4 3h5.4l4 5.6 5.3-5.6H22l-7.5 7.9L22 21h-5.4l-4.2-5.8L6.7 21H2.1l8-8.5Z"/></svg>
+          </a>
+        </nav>
+        <p class="copyright">© <span id="year"></span> Vitalis. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+    <div id="toast" role="status" aria-live="polite" class="toast" hidden></div>
+
+    <script src="script.js" defer></script>
+  </body>
+  </html>
+
+
